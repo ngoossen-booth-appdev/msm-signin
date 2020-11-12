@@ -21,7 +21,7 @@
     
     <% @list_of_movies.each_with_index do |a_movie, the_index| %>
 
-      <option value="<%=the_index%>">
+      <option value="<%=the_index+1%>">
        <%=a_movie.title%>
       </option>
       <%end%>
@@ -57,8 +57,10 @@
 
       <% @list_of_bookmarks.each do |a_bookmark| %>
       <tr>
-        <td>
-          <%=  a_bookmark.movie.title %>          
+        <td>        
+          <a href="/movies/<%=  a_bookmark.movie.id %>">
+            <%=  a_bookmark.movie.title %>
+          </a>            
         </td>
 
         <td>
