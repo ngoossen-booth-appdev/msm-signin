@@ -5,6 +5,10 @@ class BookmarksController < ApplicationController
 
     @list_of_bookmarks = matching_bookmarks.order({ :created_at => :desc })
 
+    matching_movies = Movie.all
+
+    @list_of_movies = matching_movies.order({ :created_at => :desc })
+
     render({ :template => "bookmarks/index.html.erb" })
   end
 

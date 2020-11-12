@@ -14,20 +14,23 @@
       Add a new bookmark
     </h2>
 
-    <form action="/insert_bookmark" method="post">
-    <select name = "">
-      <div>
-        <label for="movie_id_box">
-          Movie
-        </label>
 
-        <input type="text" id="movie_id_box" name="query_movie_id">
-      </div>
+<form action="/insert_bookmark" method="post">
 
-      <button>
-        Create bookmark
-      </button>
-    </form>
+  <select name="query_movie_id" id="movie_id_box">
+    
+    <% @list_of_movies.each_with_index do |a_movie, the_index| %>
+
+      <option value="<%=the_index%>">
+       <%=a_movie.title%>
+      </option>
+      <%end%>
+
+ </select>
+  <button>
+    Bookmark this movie!
+  </button>
+</form>
   </div>
 </div>
 
@@ -70,6 +73,13 @@
             Show details
           </a>
         </td>
+
+        <td>
+          <a href="/delete_bookmark/<%= a_bookmark.id%>">
+            Un-bookmark
+          </a>
+        </td>
+
       </tr>
       <% end %>
     </table>
